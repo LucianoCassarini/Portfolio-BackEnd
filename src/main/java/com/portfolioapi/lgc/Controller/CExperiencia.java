@@ -57,31 +57,6 @@ public class CExperiencia {
         return new ResponseEntity("Experiencia Agregada", HttpStatus.OK);
     }
 
-//    @PutMapping("/update/{id}")
-//    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
-//        //Existe el ID?
-//        if (!sExperiencia.existsById(id)) {
-//            return new ResponseEntity("El ID no existe", HttpStatus.BAD_REQUEST);
-//        }
-//
-//        if (sExperiencia.existsByNombreE(dtoexp.getNombreE()) && sExperiencia.getByNombreE(dtoexp.getNombreE()).get().getId() != id) {
-//            return new ResponseEntity("Esa experiencia ya existe", HttpStatus.BAD_REQUEST);
-//        }
-//        if (StringUtils.isBlank(dtoexp.getNombreE())) {
-//            return new ResponseEntity("El nombre no puede estar  en blanco", HttpStatus.BAD_REQUEST);
-//        }
-//
-//        Experiencia experiencia = sExperiencia.getOne(id).get();
-//
-//        experiencia.setNombreE(dtoexp.getNombreE());
-//        experiencia.setDescripcionE((dtoexp.getDescripcionE()));
-//        experiencia.setUrlImagenE(dtoexp.getUrlImagenE());
-//        experiencia.setFecha(dtoexp.getFecha());
-//
-//        sExperiencia.save(experiencia);
-//        return new ResponseEntity("Experiencia actualizada", HttpStatus.OK);
-//    }
-
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
@@ -108,6 +83,8 @@ public class CExperiencia {
         Experiencia experiencia = sExperiencia.getOne(id).get();
         experiencia.setNombreE(dtoexp.getNombreE());
         experiencia.setDescripcionE((dtoexp.getDescripcionE()));
+        experiencia.setFecha(dtoexp.getFecha());
+        experiencia.setUrlImagenE(dtoexp.getUrlImagenE());
         
         sExperiencia.save(experiencia);
         return new ResponseEntity("Experiencia actualizada", HttpStatus.OK);
