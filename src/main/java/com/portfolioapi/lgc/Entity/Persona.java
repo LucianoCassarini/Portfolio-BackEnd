@@ -16,7 +16,7 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
@@ -25,8 +25,29 @@ public class Persona {
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
+    
+    @NotNull
+    private String descripcion;
+    
+    @NotNull
+    private String correo;
+    
+    @NotNull
+    private String telefono;
+    
+    @NotNull
+    private String linkedin;
+    
+    @NotNull
+    private String twitter;
+    
+    @NotNull
+    private String instagram;
+    
+    @NotNull
+    private String urlcv;
 
-    @Size(min = 1, max = 100, message = "no cumple con la longitud")
+    @NotNull
     private String img;
 
     @NotNull
@@ -36,5 +57,25 @@ public class Persona {
     @NotNull
     @Size(min = 5, max = 20, message = "no cumple con la longitud")
     private String contrasena;
+    
+    //Constructores
 
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String descripcion, String correo, String telefono, String linkedin, String twitter, String instagram, String urlcv, String img, String usuario, String contrasena) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.descripcion = descripcion;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.linkedin = linkedin;
+        this.twitter = twitter;
+        this.instagram = instagram;
+        this.urlcv = urlcv;
+        this.img = img;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+    }
+    
 }
